@@ -1,0 +1,60 @@
+{
+  "name": "Hoeun Pichet - Full Stack Developer Portfolio",
+  "short_name": "Hoeun Pichet",
+  "description": "Full Stack Developer specializing in React, Next.js, TypeScript, Java, and Spring Boot. Building modern, scalable web applications with cutting-edge technologies.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/images/logo/pichet.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo/pichet.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "About",
+      "short_name": "About",
+      "description": "Learn more about Hoeun Pichet",
+      "url": "/#about",
+      "icons": [{ "src": "/images/logo/pichet.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Skills",
+      "short_name": "Skills",
+      "description": "View technical skills and technologies",
+      "url": "/#skills",
+      "icons": [{ "src": "/images/logo/pichet.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "Explore featured projects",
+      "url": "/#projects",
+      "icons": [{ "src": "/images/logo/pichet.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch",
+      "url": "/#contact",
+      "icons": [{ "src": "/images/logo/pichet.png", "sizes": "96x96" }]
+    }
+  ]
+}
+
