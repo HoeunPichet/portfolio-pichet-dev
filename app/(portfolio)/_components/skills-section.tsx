@@ -88,10 +88,9 @@ const skillCategories: SkillCategory[] = [
         title: "Additional Technologies",
         icon: Terminal,
         skills: [
-            "Linux",
             "Docker",
             "Version Control (GitHub)",
-            "UI/UX",
+            "UI/UX (Figma)",
             "Laravel",
         ],
         color: "from-teal-500 to-cyan-500",
@@ -380,7 +379,7 @@ export default function SkillsSection() {
 
                 {/* Tech Stack Auto-Scroll */}
                 <motion.div
-                    className="mt-12 sm:mt-16 md:mt-20 w-full overflow-hidden"
+                    className="mt-12 sm:mt-16 md:mt-20 w-full"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ delay: 1, duration: 0.6 }}

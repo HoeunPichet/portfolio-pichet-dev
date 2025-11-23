@@ -6,7 +6,7 @@ import { useMemo, useState, useEffect } from "react";
 import ParticlesComponent from "@/lib/particle";
 
 const GITHUB_URL = "https://github.com/HoeunPichet";
-const EMAIL_PLACEHOLDER = "mailto:hoeunpichet@example.com";
+const EMAIL_PLACEHOLDER = "mailto:hoeunpichet@gmail.com";
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },

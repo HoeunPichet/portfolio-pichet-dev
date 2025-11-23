@@ -110,7 +110,7 @@ export const metadata: Metadata = {
 
     // Additional SEO
     other: {
-        "contact": "mailto:hoeunpichet@example.com",
+        "contact": "mailto:hoeunpichet@gmail.com",
         "github": "https://github.com/HoeunPichet",
     },
 };
