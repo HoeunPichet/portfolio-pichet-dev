@@ -13,7 +13,6 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTitle,
-    DialogTrigger,
 } from "@/components/ui/dialog";
 
 const skillCategories: SkillCategory[] = [
@@ -137,13 +136,13 @@ const getGradient = (colorClass: string) => {
 
 // Get spotlight color for each category based on gradient
 const getSpotlightColor = (colorClass: string): `rgba(${number}, ${number}, ${number}, ${number})` => {
-    if (colorClass.includes("orange")) return "rgba(249, 115, 22, 0.3)"; // orange-500
-    if (colorClass.includes("blue")) return "rgba(59, 130, 246, 0.3)"; // blue-500
-    if (colorClass.includes("green")) return "rgba(34, 197, 94, 0.3)"; // green-500
-    if (colorClass.includes("purple")) return "rgba(168, 85, 247, 0.3)"; // purple-500
-    if (colorClass.includes("indigo")) return "rgba(99, 102, 241, 0.3)"; // indigo-500
-    if (colorClass.includes("teal")) return "rgba(20, 184, 166, 0.3)"; // teal-500
-    return "rgba(14, 165, 233, 0.3)"; // primary-500
+    if (colorClass.includes("orange")) return "rgba(249, 115, 22, 0.5)"; // orange-500
+    if (colorClass.includes("blue")) return "rgba(59, 130, 246, 0.5)"; // blue-500
+    if (colorClass.includes("green")) return "rgba(34, 197, 94, 0.5)"; // green-500
+    if (colorClass.includes("purple")) return "rgba(168, 85, 247, 0.5)"; // purple-500
+    if (colorClass.includes("indigo")) return "rgba(99, 102, 241, 0.5)"; // indigo-500
+    if (colorClass.includes("teal")) return "rgba(20, 184, 166, 0.5)"; // teal-500
+    return "rgba(14, 165, 233, 0.5)"; // primary-500
 };
 
 export default function SkillsSection() {
@@ -222,18 +221,6 @@ export default function SkillsSection() {
                                 >
                                     {/* Glassmorphism Card */}
                                     <div className="relative h-full rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden backdrop-blur-xl bg-gradient-to-br from-white/80 via-white/60 to-white/40 dark:from-card/80 dark:via-card/60 dark:to-card/40 border-2 hover:border-white/20 dark:border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300 p-4 sm:p-6 lg:p-8 flex flex-col relative z-10 min-h-[280px] sm:min-h-[320px]">
-                                        {/* Animated Gradient Background */}
-                                        <motion.div
-                                            className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                                            initial={false}
-                                        />
-
-                                        {/* Gradient Border Glow */}
-                                        <motion.div
-                                            className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10`}
-                                            initial={false}
-                                        />
-
                                         {/* Icon Container */}
                                         <motion.div
                                             className="relative mb-3 sm:mb-4 lg:mb-6"

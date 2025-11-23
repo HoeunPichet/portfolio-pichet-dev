@@ -1,12 +1,12 @@
 "use client";
 
-import { Github, Mail, Code } from "lucide-react";
+import { Github, Mail, Code2, Sparkles, Zap, TrendingUp } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 import { useMemo, useState, useEffect } from "react";
 import ParticlesComponent from "@/lib/particle";
 
 const GITHUB_URL = "https://github.com/HoeunPichet";
-const EMAIL_PLACEHOLDER = "mailto:your.email@example.com";
+const EMAIL_PLACEHOLDER = "mailto:hoeunpichet@example.com";
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -184,6 +184,34 @@ export default function HeroSection() {
             id="about"
             className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background via-background to-primary-50/20 dark:to-primary-950/20 overflow-hidden"
         >
+            {/* Scroll Indicator - Gen Z Style */}
+            <motion.div
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.5, duration: 0.5 }}
+            >
+                <motion.div
+                    className="text-xs text-foreground/60 font-semibold uppercase tracking-wider"
+                    animate={{ opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                >
+                    Scroll
+                </motion.div>
+                <motion.div
+                    className="flex flex-col items-center gap-1"
+                    animate={{ y: [0, 8, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                    <div className="w-5 h-8 rounded-full border-2 border-primary-500/50 flex items-start justify-center p-1.5">
+                        <motion.div
+                            className="w-1.5 h-1.5 rounded-full bg-primary-500"
+                            animate={{ y: [0, 12, 0] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                    </div>
+                </motion.div>
+            </motion.div>
             {/* Particles Background */}
             <div className="absolute inset-0 z-0">
                 <ParticlesComponent
@@ -210,33 +238,94 @@ export default function HeroSection() {
                     >
                         <motion.div
                             className="inline-block"
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
+                            initial={{ scale: 0, rotate: -180 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            transition={{ delay: 0.2, type: "spring", stiffness: 300, damping: 15 }}
+                            whileHover={{ scale: 1.05, rotate: 5 }}
                         >
-                            <span className="cursor-target px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary-500/10 text-primary-600 dark:text-primary-400 text-xs sm:text-sm font-medium">
+                            <span className="cursor-target px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-primary-500/20 via-primary-400/20 to-primary-600/20 border border-primary-500/30 text-primary-600 dark:text-primary-400 text-xs sm:text-sm font-semibold backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-200 inline-flex items-center gap-2">
+                                <motion.span
+                                    animate={{ rotate: [0, 360] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                    className="text-base"
+                                >
+                                    ⚡
+                                </motion.span>
                                 Full Stack Developer
                             </span>
                         </motion.div>
 
                         <motion.h1
-                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight"
                             variants={itemVariants}
                         >
-                            <span className="text-foreground">Hello, I'm</span>
+                            <motion.span
+                                className="text-foreground inline-block"
+                                animate={{
+                                    scale: [1, 1.05, 1],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                Hey! I&apos;m{" "}
+                            </motion.span>
                             <br />
-                            <span className="cursor-target bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">
+                            <motion.span
+                                className="cursor-target bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent inline-block"
+                                whileHover={{ scale: 1.05 }}
+                                animate={{
+                                    backgroundPosition: ["0%", "100%", "0%"],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: "linear"
+                                }}
+                                style={{
+                                    backgroundSize: "200% auto",
+                                }}
+                            >
                                 Hoeun Pichet
-                            </span>
+                            </motion.span>
+                            <motion.span
+                                className="inline-block ml-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+                                animate={{
+                                    rotate: [0, 14, -8, 14, -4, 10, 0],
+                                    scale: [1, 1.1, 1]
+                                }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.8,
+                                    repeat: Infinity,
+                                    repeatDelay: 3
+                                }}
+                            >
+                                👋
+                            </motion.span>
                         </motion.h1>
 
                         <motion.p
-                            className="text-base sm:text-lg md:text-xl text-foreground/70 leading-relaxed max-w-xl mx-auto md:mx-0 px-2 sm:px-0"
+                            className="text-base sm:text-lg md:text-xl text-foreground/80 leading-relaxed max-w-xl mx-auto md:mx-0 px-2 sm:px-0 font-medium"
                             variants={itemVariants}
                         >
-                            A passionate web developer specializing in both frontend and backend
-                            development. I create modern, scalable web applications using
-                            cutting-edge technologies.
+                            Building{" "}
+                            <motion.span
+                                className="text-primary-500 font-semibold inline-block"
+                                whileHover={{ scale: 1.1 }}
+                            >
+                                dope web apps
+                            </motion.span>
+                            {" "}with React, Next.js & Java.{" "}
+                            <motion.span
+                                className="text-primary-500 font-semibold inline-block"
+                                whileHover={{ scale: 1.1 }}
+                            >
+                                Full-stack dev
+                            </motion.span>
+                            {" "}who loves clean code & modern tech. 🚀
                         </motion.p>
 
                         <motion.div
@@ -247,55 +336,109 @@ export default function HeroSection() {
                                 href={GITHUB_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                whileHover={{ scale: 1.05, y: -2 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="cursor-target inline-flex items-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white text-sm sm:text-base font-medium transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                                whileHover={{ scale: 1.08, y: -4, rotate: 2 }}
+                                whileTap={{ scale: 0.92 }}
+                                className="cursor-target group relative inline-flex items-center space-x-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white text-sm sm:text-base font-bold transition-all shadow-xl hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 overflow-hidden"
                                 aria-label="Visit GitHub profile (opens in new tab)"
                             >
-                                <Github className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                                <span>GitHub</span>
+                                <motion.div
+                                    className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
+                                    animate={{
+                                        x: ["-100%", "100%"],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "linear"
+                                    }}
+                                />
+                                <Github className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 group-hover:rotate-12 transition-transform" aria-hidden="true" />
+                                <span className="relative z-10">Check My GitHub</span>
+                                <motion.span
+                                    className="relative z-10"
+                                    animate={{ x: [0, 4, 0] }}
+                                    transition={{ duration: 1.5, repeat: Infinity }}
+                                >
+                                    →
+                                </motion.span>
                             </motion.a>
                             <motion.a
                                 href="#contact"
-                                whileHover={{ scale: 1.05, y: -2 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="cursor-target inline-flex items-center space-x-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white text-sm sm:text-base font-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                                whileHover={{ scale: 1.08, y: -4, rotate: -2 }}
+                                whileTap={{ scale: 0.92 }}
+                                className="cursor-target group relative inline-flex items-center space-x-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl border-2 border-primary-500 bg-white/50 dark:bg-card/50 backdrop-blur-sm text-primary-500 hover:bg-primary-500 hover:text-white hover:border-primary-600 text-sm sm:text-base font-bold transition-all shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                                 aria-label="Navigate to contact section"
                             >
-                                <Mail className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                                <span>Contact Me</span>
+                                <Mail className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" aria-hidden="true" />
+                                <span>Let&apos;s Connect</span>
+                                <motion.span
+                                    animate={{ rotate: [0, 20, -20, 0] }}
+                                    transition={{ duration: 1, repeat: Infinity, delay: 1 }}
+                                    className="text-lg"
+                                >
+                                    💬
+                                </motion.span>
                             </motion.a>
                         </motion.div>
 
-                        {/* Social Links */}
+                        {/* Social Links with Stats */}
                         <motion.div
-                            className="flex items-center space-x-3 sm:space-x-4 justify-center md:justify-start pt-2 sm:pt-4"
+                            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center md:justify-start pt-4 sm:pt-6"
                             variants={itemVariants}
                             role="list"
                             aria-label="Social links"
                         >
-                            <motion.a
-                                href={GITHUB_URL}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{ scale: 1.2, rotate: 5 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="cursor-target p-2.5 sm:p-3 rounded-full bg-primary-500/10 hover:bg-primary-500/20 text-primary-600 dark:text-primary-400 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-                                aria-label="Visit GitHub profile (opens in new tab)"
-                                role="listitem"
+                            <div className="flex items-center space-x-3 sm:space-x-4">
+                                <motion.a
+                                    href={GITHUB_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    whileHover={{ scale: 1.15, rotate: [0, -10, 10, -10, 0], y: -3 }}
+                                    whileTap={{ scale: 0.85 }}
+                                    className="cursor-target group relative p-3 sm:p-3.5 rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 hover:from-primary-500/30 hover:to-primary-600/30 border border-primary-500/30 text-primary-600 dark:text-primary-400 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl backdrop-blur-sm"
+                                    aria-label="Visit GitHub profile (opens in new tab)"
+                                    role="listitem"
+                                >
+                                    <Github className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
+                                    <motion.div
+                                        className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-background"
+                                        animate={{ scale: [1, 1.2, 1] }}
+                                        transition={{ duration: 2, repeat: Infinity }}
+                                    />
+                                </motion.a>
+                                <motion.a
+                                    href={EMAIL_PLACEHOLDER}
+                                    whileHover={{ scale: 1.15, rotate: [0, 10, -10, 10, 0], y: -3 }}
+                                    whileTap={{ scale: 0.85 }}
+                                    className="cursor-target group relative p-3 sm:p-3.5 rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 hover:from-primary-500/30 hover:to-primary-600/30 border border-primary-500/30 text-primary-600 dark:text-primary-400 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg hover:shadow-xl backdrop-blur-sm"
+                                    aria-label="Send email"
+                                    role="listitem"
+                                >
+                                    <Mail className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
+                                </motion.a>
+                            </div>
+
+                            {/* Quick Stats */}
+                            <motion.div
+                                className="cursor-target flex items-center gap-4 sm:gap-6 px-4 py-2 rounded-xl bg-gradient-to-r from-primary-500/10 to-primary-600/10 border border-primary-500/20 backdrop-blur-sm"
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.8 }}
                             >
-                                <Github className="w-4 h-4 sm:w-5 sm:h-5" />
-                            </motion.a>
-                            <motion.a
-                                href={EMAIL_PLACEHOLDER}
-                                whileHover={{ scale: 1.2, rotate: -5 }}
-                                whileTap={{ scale: 0.9 }}
-                                className="cursor-target p-2.5 sm:p-3 rounded-full bg-primary-500/10 hover:bg-primary-500/20 text-primary-600 dark:text-primary-400 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
-                                aria-label="Send email"
-                                role="listitem"
-                            >
-                                <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                            </motion.a>
+                                <div className="text-center">
+                                    <div className="text-lg sm:text-xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">
+                                        100%
+                                    </div>
+                                    <div className="text-xs text-foreground/60 font-medium">Passionate</div>
+                                </div>
+                                <div className="w-px h-8 bg-primary-500/30" />
+                                <div className="text-center">
+                                    <div className="text-lg sm:text-xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">
+                                        24/7
+                                    </div>
+                                    <div className="text-xs text-foreground/60 font-medium">Learning</div>
+                                </div>
+                            </motion.div>
                         </motion.div>
                     </motion.div>
 
@@ -321,11 +464,203 @@ export default function HeroSection() {
                                 }}
                             />
 
+                            {/* Floating Tech Badges Around Card */}
+                            {[
+                                { icon: Code2, label: "Code", position: "top-left", delay: 0.2, color: "from-blue-500 to-cyan-500" },
+                                { icon: Sparkles, label: "Creative", position: "top-right", delay: 0.4, color: "from-purple-500 to-pink-500" },
+                                { icon: Zap, label: "Fast", position: "bottom-left", delay: 0.6, color: "from-yellow-500 to-orange-500" },
+                                { icon: TrendingUp, label: "Growing", position: "bottom-right", delay: 0.8, color: "from-green-500 to-emerald-500" },
+                            ].map((badge) => {
+                                const Icon = badge.icon;
+                                const positionClasses = {
+                                    "top-left": "top-0 left-0 -translate-x-1/2 -translate-y-1/2",
+                                    "top-right": "top-0 right-0 translate-x-1/2 -translate-y-1/2",
+                                    "bottom-left": "bottom-0 left-0 -translate-x-1/2 translate-y-1/2",
+                                    "bottom-right": "bottom-0 right-0 translate-x-1/2 translate-y-1/2",
+                                };
+
+                                return (
+                                    <motion.div
+                                        key={badge.label}
+                                        className={`absolute ${positionClasses[badge.position as keyof typeof positionClasses]} z-20 hidden md:block`}
+                                        initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                                        animate={{
+                                            opacity: 1,
+                                            scale: 1,
+                                            rotate: 0,
+                                            y: [0, -10, 0],
+                                        }}
+                                        transition={{
+                                            opacity: { delay: badge.delay, duration: 0.5 },
+                                            scale: { delay: badge.delay, duration: 0.5, type: "spring" },
+                                            rotate: { delay: badge.delay, duration: 0.8, type: "spring" },
+                                            y: {
+                                                duration: 3,
+                                                repeat: Infinity,
+                                                ease: "easeInOut",
+                                                delay: badge.delay,
+                                            },
+                                        }}
+                                        whileHover={{ scale: 1.2, rotate: 360 }}
+                                    >
+                                        <div className={`relative px-3 py-2 rounded-lg bg-gradient-to-br ${badge.color} shadow-lg backdrop-blur-sm border border-white/20`}>
+                                            <div className="flex items-center gap-2">
+                                                <Icon className="w-4 h-4 text-white" />
+                                                <span className="text-xs font-semibold text-white whitespace-nowrap">{badge.label}</span>
+                                            </div>
+                                            {/* Glow effect */}
+                                            <div className={`absolute inset-0 rounded-lg bg-gradient-to-br ${badge.color} opacity-50 blur-md -z-10`} />
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
+
+                            {/* Animated Gradient Orbs */}
+                            {[
+                                { size: 120, x: -60, y: -40, delay: 0, color: "from-blue-500/30 to-cyan-500/20" },
+                                { size: 80, x: 80, y: 60, delay: 0.3, color: "from-purple-500/30 to-pink-500/20" },
+                                { size: 100, x: -40, y: 100, delay: 0.6, color: "from-green-500/30 to-emerald-500/20" },
+                            ].map((orb, index) => (
+                                <motion.div
+                                    key={index}
+                                    className={`absolute rounded-full bg-gradient-to-br ${orb.color} blur-2xl -z-10`}
+                                    style={{
+                                        width: orb.size,
+                                        height: orb.size,
+                                        left: `calc(50% + ${orb.x}px)`,
+                                        top: `calc(50% + ${orb.y}px)`,
+                                    }}
+                                    animate={{
+                                        scale: [1, 1.2, 1],
+                                        opacity: [0.3, 0.6, 0.3],
+                                        x: [0, 20, 0],
+                                        y: [0, -20, 0],
+                                    }}
+                                    transition={{
+                                        duration: 4 + index,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: orb.delay,
+                                    }}
+                                />
+                            ))}
+
+                            {/* Floating Tech Stack Pills */}
+                            {[
+                                { text: "React", x: -100, y: 20, delay: 1 },
+                                { text: "Next.js", x: 120, y: -30, delay: 1.2 },
+                                { text: "TypeScript", x: -80, y: 180, delay: 1.4 },
+                                { text: "Java", x: 100, y: 200, delay: 1.6 },
+                            ].map((pill, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="absolute z-10 hidden lg:block"
+                                    style={{
+                                        left: `calc(50% + ${pill.x}px)`,
+                                        top: `calc(50% + ${pill.y}px)`,
+                                    }}
+                                    initial={{ opacity: 0, y: 20, scale: 0 }}
+                                    animate={{
+                                        opacity: [0, 1, 1, 0],
+                                        y: [20, 0, -10, -20],
+                                        scale: [0, 1, 1.1, 0.9],
+                                    }}
+                                    transition={{
+                                        duration: 4,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: pill.delay,
+                                    }}
+                                >
+                                    <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-card/80 backdrop-blur-md border border-primary-500/30 shadow-lg">
+                                        <span className="text-xs font-medium text-foreground bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">
+                                            {pill.text}
+                                        </span>
+                                    </div>
+                                </motion.div>
+                            ))}
+
+                            {/* Connecting Lines/Grid Pattern */}
+                            <div className="absolute inset-0 -z-10 opacity-20">
+                                <svg className="w-full h-full" viewBox="0 0 400 450" preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stopColor="rgb(59, 130, 246)" stopOpacity="0.5" />
+                                            <stop offset="50%" stopColor="rgb(168, 85, 247)" stopOpacity="0.3" />
+                                            <stop offset="100%" stopColor="rgb(34, 197, 94)" stopOpacity="0.5" />
+                                        </linearGradient>
+                                    </defs>
+                                    <motion.line
+                                        x1="50"
+                                        y1="50"
+                                        x2="350"
+                                        y2="400"
+                                        stroke="url(#lineGradient)"
+                                        strokeWidth="2"
+                                        strokeDasharray="5,5"
+                                        initial={{ pathLength: 0, opacity: 0 }}
+                                        animate={{ pathLength: 1, opacity: 0.3 }}
+                                        transition={{ duration: 2, delay: 1, repeat: Infinity, repeatType: "reverse" }}
+                                    />
+                                    <motion.line
+                                        x1="350"
+                                        y1="50"
+                                        x2="50"
+                                        y2="400"
+                                        stroke="url(#lineGradient)"
+                                        strokeWidth="2"
+                                        strokeDasharray="5,5"
+                                        initial={{ pathLength: 0, opacity: 0 }}
+                                        animate={{ pathLength: 1, opacity: 0.3 }}
+                                        transition={{ duration: 2, delay: 1.5, repeat: Infinity, repeatType: "reverse" }}
+                                    />
+                                </svg>
+                            </div>
+
+                            {/* Corner Accent Dots */}
+                            {[
+                                { position: "top-left", x: -20, y: -20 },
+                                { position: "top-right", x: 20, y: -20 },
+                                { position: "bottom-left", x: -20, y: 20 },
+                                { position: "bottom-right", x: 20, y: 20 },
+                            ].map((corner, index) => (
+                                <motion.div
+                                    key={corner.position}
+                                    className="absolute z-10"
+                                    style={{
+                                        [corner.position.includes("left") ? "left" : "right"]: corner.x,
+                                        [corner.position.includes("top") ? "top" : "bottom"]: corner.y,
+                                    }}
+                                    animate={{
+                                        scale: [1, 1.5, 1],
+                                        opacity: [0.5, 1, 0.5],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        delay: index * 0.2,
+                                    }}
+                                >
+                                    <div className="w-2 h-2 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 shadow-lg" />
+                                </motion.div>
+                            ))}
+
                             {/* 3D Flip Card Container */}
                             <div className="relative w-full h-[400px] sm:h-[450px] perspective-1000">
                                 <motion.div
-                                    className="cursor-target relative w-full h-full preserve-3d transition-transform duration-700"
-                                    whileHover={{ rotateY: 180 }}
+                                    className="cursor-target relative w-full h-full preserve-3d transition-transform duration-500"
+                                    whileHover={{ rotateY: 180, scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    animate={{
+                                        y: [0, -8, 0],
+                                    }}
+                                    transition={{
+                                        y: {
+                                            duration: 3,
+                                            repeat: Infinity,
+                                            ease: "easeInOut"
+                                        }
+                                    }}
                                     style={{ transformStyle: "preserve-3d" }}
                                 >
                                     {/* Face 1 - Front (Code Editor Style) */}
@@ -338,23 +673,43 @@ export default function HeroSection() {
                                     >
                                         <div className="w-full h-full flex flex-col">
                                             {/* Window Control Dots */}
-                                            <div className="flex items-center space-x-2 p-4 border-b border-border/50">
+                                            <div className="flex items-center space-x-2 p-4 border-b border-border/50 bg-gradient-to-r from-background/50 to-background/30">
                                                 <motion.div
-                                                    className="w-3 h-3 rounded-full bg-red-500"
-                                                    animate={{ scale: [1, 1.2, 1] }}
-                                                    transition={{ duration: 2, repeat: Infinity, delay: 0 }}
+                                                    className="w-3 h-3 rounded-full bg-red-500 cursor-pointer"
+                                                    animate={{ scale: [1, 1.3, 1] }}
+                                                    transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
+                                                    whileHover={{ scale: 1.4 }}
+                                                    whileTap={{ scale: 0.9 }}
                                                 />
                                                 <motion.div
-                                                    className="w-3 h-3 rounded-full bg-yellow-500"
-                                                    animate={{ scale: [1, 1.2, 1] }}
-                                                    transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
+                                                    className="w-3 h-3 rounded-full bg-yellow-500 cursor-pointer"
+                                                    animate={{ scale: [1, 1.3, 1] }}
+                                                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
+                                                    whileHover={{ scale: 1.4 }}
+                                                    whileTap={{ scale: 0.9 }}
                                                 />
                                                 <motion.div
-                                                    className="w-3 h-3 rounded-full bg-green-500"
-                                                    animate={{ scale: [1, 1.2, 1] }}
-                                                    transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
+                                                    className="w-3 h-3 rounded-full bg-green-500 cursor-pointer"
+                                                    animate={{ scale: [1, 1.3, 1] }}
+                                                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
+                                                    whileHover={{ scale: 1.4 }}
+                                                    whileTap={{ scale: 0.9 }}
                                                 />
-                                                <span className="ml-4 text-xs text-foreground/60 font-mono">developer.js</span>
+                                                <motion.span
+                                                    className="ml-4 text-xs text-foreground/70 font-mono font-semibold"
+                                                    animate={{ opacity: [0.6, 1, 0.6] }}
+                                                    transition={{ duration: 2, repeat: Infinity }}
+                                                >
+                                                    developer.js
+                                                </motion.span>
+                                                <motion.div
+                                                    className="ml-auto flex items-center gap-1"
+                                                    animate={{ opacity: [0.5, 1, 0.5] }}
+                                                    transition={{ duration: 1.5, repeat: Infinity }}
+                                                >
+                                                    <span className="text-xs text-green-500 font-mono">●</span>
+                                                    <span className="text-xs text-foreground/50 font-mono">Live</span>
+                                                </motion.div>
                                             </div>
 
                                             {/* Code Editor Content */}
@@ -538,7 +893,7 @@ export default function HeroSection() {
                                                                         transition={{ delay: 1.9, duration: 0.3 }}
                                                                     >
                                                                         {" "}
-                                                                        "Hoeun Pichet"
+                                                                        &quot;Hoeun Pichet&quot;
                                                                     </motion.span>
                                                                     <motion.span
                                                                         className="text-foreground/60"
@@ -580,7 +935,7 @@ export default function HeroSection() {
                                                                         transition={{ delay: 2.4, duration: 0.3 }}
                                                                     >
                                                                         {" "}
-                                                                        "Full Stack Developer"
+                                                                        &quot;Full Stack Developer&quot;
                                                                     </motion.span>
                                                                     <motion.span
                                                                         className="text-foreground/60"

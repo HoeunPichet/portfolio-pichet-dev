@@ -31,7 +31,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
         if (typeof window === 'undefined') return false;
         const hasTouchScreen = 'ontouchstart' in window || (typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0);
         const isSmallScreen = window.innerWidth <= 768;
-        const userAgent = typeof navigator !== 'undefined' ? (navigator.userAgent || navigator.vendor || (window as any).opera) : '';
+        const userAgent = typeof navigator !== 'undefined' ? (navigator.userAgent || navigator.vendor || (window as Window & { opera?: string }).opera) : '';
         const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
         const isMobileUserAgent = userAgent ? mobileRegex.test(userAgent.toLowerCase()) : false;
         return (hasTouchScreen && isSmallScreen) || isMobileUserAgent;

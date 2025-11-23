@@ -57,7 +57,7 @@ export default function ContactSection() {
                         transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
                     >
                         <span className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary-500/10 text-primary-400 text-xs sm:text-sm font-medium border border-primary-500/20">
-                            Let's Work Together
+                            Let&apos;s Work Together
                         </span>
                     </motion.div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
@@ -66,7 +66,7 @@ export default function ContactSection() {
                         </span>
                     </h2>
                     <p className="text-base sm:text-lg text-foreground/70 max-w-2xl mx-auto px-2">
-                        I'm always open to discussing new projects, creative ideas, or
+                        I&apos;m always open to discussing new projects, creative ideas, or
                         opportunities to be part of your visions.
                     </p>
                 </motion.div>
@@ -187,8 +187,8 @@ export default function ContactSection() {
                         transition={{ delay: 0.8, duration: 0.6 }}
                     >
                         <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
-                            Feel free to reach out if you're looking for a developer, have a
-                            question, or just want to connect. I'm always interested in
+                            Feel free to reach out if you&apos;re looking for a developer, have a
+                            question, or just want to connect. I&apos;m always interested in
                             hearing about new opportunities and projects.
                         </p>
                     </motion.div>
