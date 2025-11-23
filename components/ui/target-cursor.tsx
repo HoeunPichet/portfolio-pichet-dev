@@ -31,7 +31,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
         if (typeof window === 'undefined') return false;
         const hasTouchScreen = 'ontouchstart' in window || (typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0);
         const isSmallScreen = window.innerWidth <= 768;
-        const userAgent = typeof navigator !== 'undefined' ? (navigator.userAgent || navigator.vendor || (window as Window & { opera?: string }).opera) : '';
+        const userAgent = typeof navigator !== 'undefined' ? (navigator.userAgent || navigator.vendor || (window as Window & { opera?: string }).opera || '') : '';
         const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
         const isMobileUserAgent = userAgent ? mobileRegex.test(userAgent.toLowerCase()) : false;
         return (hasTouchScreen && isSmallScreen) || isMobileUserAgent;
@@ -54,6 +54,9 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
 
         const cursor = cursorRef.current;
         cornersRef.current = cursor.querySelectorAll<HTMLDivElement>('.target-cursor-corner');
+
+        // Capture ref value at effect start for cleanup
+        const strengthRef = activeStrengthRef.current;
 
         let activeTarget: Element | null = null;
         let currentLeaveHandler: (() => void) | null = null;
@@ -263,7 +266,10 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
             document.body.style.cursor = originalCursor;
             isActiveRef.current = false;
             targetCornerPositionsRef.current = null;
-            activeStrengthRef.current.current = 0;
+            // Use captured ref value from effect start
+            if (strengthRef) {
+                strengthRef.current = 0;
+            }
         };
     }, [targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor, isMobile, hoverDuration, parallaxOn]);
 

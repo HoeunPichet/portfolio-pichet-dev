@@ -597,7 +597,7 @@ export default function HeroSection() {
                                         y2="400"
                                         stroke="url(#lineGradient)"
                                         strokeWidth="2"
-                                        strokeDasharray="5,5"
+                                        strokeDasharray="5 5"
                                         initial={{ pathLength: 0, opacity: 0 }}
                                         animate={{ pathLength: 1, opacity: 0.3 }}
                                         transition={{ duration: 2, delay: 1, repeat: Infinity, repeatType: "reverse" }}
@@ -609,7 +609,7 @@ export default function HeroSection() {
                                         y2="400"
                                         stroke="url(#lineGradient)"
                                         strokeWidth="2"
-                                        strokeDasharray="5,5"
+                                        strokeDasharray="5 5"
                                         initial={{ pathLength: 0, opacity: 0 }}
                                         animate={{ pathLength: 1, opacity: 0.3 }}
                                         transition={{ duration: 2, delay: 1.5, repeat: Infinity, repeatType: "reverse" }}
